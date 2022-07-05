@@ -101,7 +101,19 @@ main:
 # a1 is the address of the "output" array (defined above).
 f:
     # YOUR CODE GOES HERE!
-
+    ## allocate stack to save 's0' 
+    addi sp, sp -4
+    sw s0, 0(sp)   
+    
+    ## find the index of the argument
+   	addi s0, a0, 3	# index = (-3,-2,-1,0,1,2,3) + 3
+    ## use the index to indicate the value in the "output" array  	
+    slli s0, s0, 2  # alignment
+    add s0, s0, a1  # get the address of ouput[i]
+    lw a0, 0(s0)	# ret = output[i] 
+    
+	lw s0, 0(sp)   
+    addi sp, sp, 4
     jr ra               # Always remember to jr ra after your function!
 
 # prints out one integer
