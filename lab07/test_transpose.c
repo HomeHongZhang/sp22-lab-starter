@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <time.h>
+#include <stdlib.h>
 #include "transpose.h"
 
 double benchmark(int *A, int *B, int n, int blocksize,
@@ -39,8 +40,15 @@ double benchmark(int *A, int *B, int n, int blocksize,
 
 int main( int argc, char **argv ) {
 
-    int n = 12000;
-    int blocksize = 80;
+    // int n = 100;
+    // int blocksize = 20;
+    if (argc != 3)
+    {
+        printf("Usage: add `n` and `blocksize` as the parameters\nExample: ./transpose 100 20\n");
+        return -1;
+    }
+    int n = strtol(argv[1], NULL, 10);
+    int blocksize = strtol(argv[2], NULL, 10);
 
     /* allocate an n*n block of integers for the matrices */
     int *A = (int*)malloc( n*n*sizeof(int) );

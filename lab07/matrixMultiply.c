@@ -70,7 +70,6 @@ void multMat6( int n, float *A, float *B, float *C ) {
 /* uses timing features from sys/time.h that you haven't seen before */
 int main( int argc, char **argv ) {
     int nmax = 1000,i;
-
     void (*orderings[])(int,float *,float *,float *) =
         {&multMat1,&multMat2,&multMat3,&multMat4,&multMat5,&multMat6};
     char *names[] = {"ijk","ikj","jik","jki","kij","kji"};
