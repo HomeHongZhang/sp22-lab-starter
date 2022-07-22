@@ -32,7 +32,8 @@ int main() {
 
 	printf("Naive: %d threads took %f seconds\n",num_threads,run_time);
 
-  	for(int i=1; i<=num_threads; i++) {
+  	// for(int i=1; i<=num_threads; i++) {
+	for(int i=1; i<=10; i++) {
 		omp_set_num_threads(i);		
 	  	start_time = omp_get_wtime();
 		for(int j=0; j<REPEAT; j++){
@@ -56,8 +57,9 @@ int main() {
   		printf("Fastest adjacent runtime didn't provide at least 2x speedup from naive benchmark.\n");
   		return -1;
   	}
-
-  	for (int i=1; i<=num_threads; i++) {
+	
+	for (int i=1; i<=10; i++) {
+  	//for (int i=1; i<=num_threads; i++) {
 		omp_set_num_threads(i);		
 	  	start_time = omp_get_wtime();
 		for(int j=0; j<REPEAT; j++){
