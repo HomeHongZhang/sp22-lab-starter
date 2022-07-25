@@ -32,7 +32,8 @@ int main() {
 	printf("Naive: 1 thread took %f seconds\n",naive);
 
 	// Test framework that sweeps the number of threads and times each ru
-	for (int i=1; i<=num_threads; i++) {
+	for (int i=1; i<=10; i++) {
+	//for (int i=1; i<=num_threads; i++) {
 		omp_set_num_threads(i);
 		start_time = omp_get_wtime();
 		for(int j=0; j<REPEAT; j++) {
@@ -58,8 +59,8 @@ int main() {
 		return -1;
 	}
 
-
-	for (int i=1; i<=num_threads; i++) {
+	for (int i=1; i<=10; i++) {
+	//for (int i=1; i<=num_threads; i++) {
 		omp_set_num_threads(i);
 		start_time = omp_get_wtime();
 		for(int j=0; j<REPEAT; j++) {
